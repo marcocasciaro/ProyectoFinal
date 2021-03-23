@@ -7,6 +7,7 @@ const model = require('../../models/productos');
 const service = require('../../services/productos');
 
 
+
 const all = async(req,res) => {
     var productos = await model.get();
     res.render('productos', {productos});
@@ -14,13 +15,16 @@ const all = async(req,res) => {
 
 const create = async(req, res) => {
     const idFile = await service.createProducto(req.body, req.file);
-    res.redirect('/admin/productos');
+    res.redirect('/admin/productos/create');
 }
+
+
 
 
 router.get('/', all);
 router.get('/create', (req,res) => res.render("crearProducto"));
-router.post('/create',upload.single("imagen"),create)
+router.post('/create',  upload.single("imagen"),create);
+
 
 
 

@@ -36,8 +36,10 @@ const convert = async(admin, id) => {
     return await pool.query(query, params);
 }
 
+const create = (obj) => {
+    pool.query("INSERT INTO ?? SET ?", [TABLA_USUARIOS, obj]).then((result)=> result).catch((e)=> console.log(e));
+}
 
 
 
-
-module.exports = {get, single, auth, update, convert};
+module.exports = {get, single, create, auth, update, convert};

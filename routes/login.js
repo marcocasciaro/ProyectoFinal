@@ -25,7 +25,7 @@ const login = async(req, res) => {
     req.session.idUser = id; 
     req.session.admin = admin;
 
-    res.redirect('/admin/usuarios');
+    res.redirect('/');
 }
 catch(e){
     console.log(e);

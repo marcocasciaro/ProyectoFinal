@@ -15,7 +15,15 @@ var loginRouter = require('./routes/login');
 var registroRouter = require('./routes/registro');
 var contactoRouter = require('./routes/contacto');
 var redesRouter = require('./routes/redes');
-var productosRouter = require('./routes/admin/productos');
+var adminproductosRouter = require('./routes/admin/productos');
+var adminproductos2Router = require('./routes/admin/productos2');
+var variosRouter = require('./routes/varios');
+var pescaRouter = require('./routes/pesca');
+var bolsosRouter = require('./routes/bolsos');
+var gourmetRouter = require('./routes/gourmet');
+var outdoorRouter = require('./routes/outdoor');
+var oficinaRouter = require('./routes/oficina');
+var productosRouter = require('./routes/productos');
 const { verifyLogin } = require('./midlewares/users');
 
 var app = express();
@@ -43,7 +51,15 @@ app.use('/login', loginRouter);
 app.use('/registro', registroRouter);
 app.use('/contacto', contactoRouter);
 app.use('/redes', redesRouter);
-app.use('/admin/productos', verifyAdmin, productosRouter);
+app.use('/admin/productos', verifyAdmin, adminproductosRouter);
+app.use('/admin/productos2', verifyAdmin, adminproductos2Router);
+app.use('/varios', variosRouter);
+app.use('/pesca', pescaRouter);
+app.use('/bolsos', bolsosRouter);
+app.use('/gourmet', gourmetRouter);
+app.use('/outdoor', outdoorRouter);
+app.use('/oficina', oficinaRouter);
+app.use('/productos', productosRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

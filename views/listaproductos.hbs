@@ -1,0 +1,65 @@
+{{#if status}}
+<div class="container">
+    <button class="btn btn-danger" type="button"><a href="productos/create"> CREAR PRODUCTO </a></button>
+    <button class="btn btn-danger" type="button"><a href="productos2/disabled"> PRODUCTOS 
+            DESHABILITADOS</a></button>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Ver mas</th>
+                    <th scope="col">Modificar</th>
+                    <th scope="col">Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each productos}}
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>{{descripcion}}</td>
+                    <td>{{precio}}</td>
+                    <td>{{tipo}}</td>
+                    <td><a href="productos2/single/{{id}}">Ver Mas</a></td>
+                    <td><a href="productos2/update/{{id}}">Modificar</a></td>
+                    <td><a href="productos2/delete/{{id}}">Borrar</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{{else}}
+<div class="container">
+    <button class="btn btn-danger" type="button"><a href="/admin/productos2"> PRODUCTOS HABILITADOS</a></button>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Habilitar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each productos}}
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>{{descripcion}}</td>
+                    <td>{{precio}}</td>
+                    <td>{{tipo}}</td>
+                    <td><a href="disabled/{{id}}">Habilitar</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{{/if}}

@@ -1,6 +1,6 @@
 const fs = require('fs'); // file system me deja manejarme adentro de la pc
 const {v4 : uuid} = require('uuid'); //id unico
-const allowExtension = ["png", "jpg"];
+const allowExtension = [ "png", "jpg"];
 
 const deleteTemp = (file) => fs.unlink(file, e => console.log(e));
 

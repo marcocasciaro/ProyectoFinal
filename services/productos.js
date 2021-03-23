@@ -1,5 +1,5 @@
 const {create, createImg} = require('./../models/productos');
-const {imgFile} = require('./../utils/fileHandler');
+const {imgFile} = require('./../utils/filehandler');
 
 const createProducto = async(body, file) => {
     try{
