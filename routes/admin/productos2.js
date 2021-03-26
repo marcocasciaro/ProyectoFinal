@@ -32,14 +32,12 @@ const getUpdate = async(req,res) => {
     const descripcion = producto[0].descripcion;
     const precio = producto[0].precio;
     const tipo = producto[0].tipo;
-    const nombres = await get();
-    res.render('modificarProducto', {nombre, descripcion, precio, tipo, nombres});
+    res.render('modificarProducto', {nombre, descripcion, precio, tipo});
 }
 const update = async(req,res) => {
     const id = req.params.id;
     const proModif = req.body;
     console.log(proModif);
-    const modificar = await model.update(id, proModif);
     res.redirect('/admin/productos2');
 }
 

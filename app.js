@@ -6,6 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var dotenv = require('dotenv');
 const {verifyAdmin, verifyUser} = require('./midlewares/auth');
+const { verifyLogin } = require('./midlewares/users');
 dotenv.config();
 
 var indexRouter = require('./routes/index');
@@ -24,7 +25,8 @@ var gourmetRouter = require('./routes/gourmet');
 var outdoorRouter = require('./routes/outdoor');
 var oficinaRouter = require('./routes/oficina');
 var productosRouter = require('./routes/productos');
-const { verifyLogin } = require('./midlewares/users');
+var carritoRouter = require('./routes/carrito');
+
 
 var app = express();
 
@@ -60,6 +62,7 @@ app.use('/gourmet', gourmetRouter);
 app.use('/outdoor', outdoorRouter);
 app.use('/oficina', oficinaRouter);
 app.use('/productos', productosRouter);
+app.use('/carrito', verifyUser, carritoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

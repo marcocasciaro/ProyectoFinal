@@ -1,4 +1,5 @@
-<head> <style>
+<head>
+  <style>
     body{
         background-color: rgb(255, 251, 246);
     }
@@ -28,7 +29,7 @@
 <div class="logo"><img src="/images/logo-transparente[580].png" class="img-fluid" alt="..."></div>
 
  <div class="contenedor">
-        <h5 style="margin-right: 15px;"><a href="./"> INICIO</a></h5>
+        <h5 style="color: #706e6e; margin-right: 15px;"><a  href="./"> INICIO</a></h5>
         <div class="dropdown">
         <h5 style="margin-right: 15px;" class="dropbtn"><a href="./productos">PRODUCTOS</a></h5>
         <div class="dropdown-content">
@@ -41,32 +42,49 @@
     </div>
 </div>
 
-        <h5 style="margin-right: 15px;"><a href="./contacto">CONTACTO</a></h5>
-        <h5 style="margin-right: 15px;"><a href="./redes"> REDES SOCIALES</a> </h5>
-    </div>
+        <h5 style="margin-right: 15px;">CONTACTO</h5>
+        <h5 style="margin-right: 15px;"><a href="./redes"> REDES SOCIALES</a></h5>
+    </div> 
+
 </head>
 
-<body>
-
-<div class="container">
-    <div class="cards">
-      {{#each productos}}
-      <div class="card" style="width: 250px; margin-right: 5rem; margin-top:20px; background-color:rgb(236, 236, 236)" >
-            <img src="/images/{{uid}}" class="card-img-top" alt="no se encontro la imagen">
-            <div class="card-body">
-                <h5 class="card-title">{{nombre}}</h5>
-                <p class="card-text">Precio: ${{precio}}</p>
-                <a href="/productos/single/{{id}}" class="btn btn-primary" style="background-color: green; color:black;">Ver mas</a>
-            </div>
-        </div>
-      {{/each}}
+<body >
+  <div class="container">
+    <div class="row">
+        <table class="table" style="margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio total</th>
+                    <th scope="col">Eliminar</th>
+                    <th scope="col">Precio final</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each carrito}}
+                <tr>
+                    <td>{{nombre_producto}}</td>
+                    <td>{{cantidad}}</td>
+                    <td>${{precio}}</td>
+                    <td><a href="carrito/delete/{{id}}"><i class="fas fa-trash-alt" style="color: red"></i></a></td>
+                    <td></td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="font-weight: bold;">${{precioFinal}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" style="background-color: green;">Confirmar compra</button>
     </div>
-  </div>
-
-    
-
-  
+</div>  
 </body>
+
 <div style="margin-top: 100px;" class="caja">
   <h5 style="margin-right: 70px;"><i class="fas fa-truck" style="margin-right: 5px;"></i>ENVIAMOS TU COMPRA</h5>
   <h5 style="margin-right: 70px;"><i class="fas fa-credit-card" style="margin-right: 5px;"></i>PAGÁ COMO QUIERAS</h5>
@@ -98,6 +116,7 @@
     <h6></h6>
     <h6></h6>
     <h6><a href="./redes">Redes Sociales</a></h6>
+</div>
 
 
 

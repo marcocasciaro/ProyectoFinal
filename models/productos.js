@@ -3,9 +3,9 @@ const TABLA_PRODUCTOS = "productos";
 const T_PRODUCTOS_IMAGENES = "productos_imagenes";
 
 
-const get = async () => {
-    const query = "SELECT p.*, p_i.uid  FROM ?? AS p JOIN ?? AS p_i ON p.id = p_i.idProducto";
-    const params = [TABLA_PRODUCTOS, T_PRODUCTOS_IMAGENES];
+const get = async (habilitado) => {
+    const query = "SELECT p.*, p_i.uid  FROM ?? AS p JOIN ?? AS p_i ON p.id = p_i.idProducto WHERE p.habilitado = 1";
+    const params = [TABLA_PRODUCTOS, T_PRODUCTOS_IMAGENES, habilitado];
     const rows = await pool.query(query, params);
     return rows;
 }
@@ -26,9 +26,10 @@ const single = async(id) => {
 }
 
 const createImg = async(obj) => {
-    pool.query("INSERT INTO ?? SET ?", [T_PRODUCTOS_IMAGENES, obj]).then((response) => response).catch((e) => console.log(e));
-
+    const query = "INSERT INTO ?? SET ?";
+    const params = [T_PRODUCTOS_IMAGENES, obj];
+    const rows = await pool.query(query,params);
+    return rows;
 }
-
 
 module.exports = {get, single, create, createImg}

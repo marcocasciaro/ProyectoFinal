@@ -67,6 +67,7 @@ a {
   justify-content: space-around;
   align-content: center;
   margin-top: 50px;
+  margin-left: 50px;
 }
 
 .margen{
@@ -167,4 +168,13 @@ a:active {
   text-decoration: underline;
 }
 
+.unico{
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.preci{
+  display: grid;
+}
 

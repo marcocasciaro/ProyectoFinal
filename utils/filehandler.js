@@ -5,7 +5,7 @@ const allowExtension = [ "png", "jpg"];
 const deleteTemp = (file) => fs.unlink(file, e => console.log(e));
 
 
-const saveFile = ({mimetype, size, path}, extension, destFolder = './public/images') => {
+const saveFile = ({mimetype, size, path}, extension, destFolder = './images') => {
     try{
     const [type, ext] = mimetype.split("/");
     if(!extension.includes(ext)){
@@ -17,7 +17,7 @@ const saveFile = ({mimetype, size, path}, extension, destFolder = './public/imag
     //leer el archivo y lo escribe en nuestro file name out
     fs.createReadStream(path).pipe(fs.createWriteStream(fileNameOut));
     deleteTemp(path);
-    return fileName;
+    return fileNameOut;
     }
     catch(e){
         console.error(e);

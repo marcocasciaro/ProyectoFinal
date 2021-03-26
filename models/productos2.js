@@ -4,9 +4,9 @@ const TABLA_PRODUCTOS = "productos";
 
 //select a la BD
 
-const get = async (habilitado) => {
+const get = async (habilitado, obj) => {
     const query = "SELECT p.id, p.nombre, p.descripcion, p.precio, p.tipo  FROM ?? as p  WHERE p.habilitado = ?";
-    const params = [TABLA_PRODUCTOS, habilitado];
+    const params = [TABLA_PRODUCTOS, habilitado, obj];
     // la query me devuelve un objeto o conjunto de filas Data Row Package en un [{}]
     const rows = await pool.query(query, params);
     return rows;

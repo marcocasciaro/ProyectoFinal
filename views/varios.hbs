@@ -48,7 +48,20 @@
 
 <body>
 
-
+<div class="container">
+    <div class="cards">
+      {{#each productos}}
+      <div class="card" style="width: 250px; margin-right: 5rem; margin-top:20px; background-color:rgb(236, 236, 236)" >
+            <img src="/images/{{uid}}" class="card-img-top" alt="no se encontro la imagen">
+            <div class="card-body">
+                <h5 class="card-title">{{nombre}}</h5>
+                <p class="card-text">Precio: ${{precio}}</p>
+                <a href="/productos/single/{{id}}" class="btn btn-primary" style="background-color: green; color:black;">Ver mas</a>
+            </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
     
     
 
