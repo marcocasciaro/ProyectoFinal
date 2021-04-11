@@ -28,14 +28,18 @@ const single = async(req,res) => {
 const getUpdate = async(req,res) => {
     const id = req.params.id;
     const producto = await model.single(id);
+    /*const id = producto[0].id;*/
     const nombre = producto[0].nombre;
     const descripcion = producto[0].descripcion;
     const precio = producto[0].precio;
     const tipo = producto[0].tipo;
-    res.render('modificarProducto', {nombre, descripcion, precio, tipo});
+    res.render('modificarProducto', { id, nombre, descripcion, precio, tipo});
 }
 const update = async(req,res) => {
+    const obj = req.body; 
     const id = req.params.id;
+    console.log(req.params.id);
+    const productos = await model.update(id, obj);
     const proModif = req.body;
     console.log(proModif);
     res.redirect('/admin/productos2');

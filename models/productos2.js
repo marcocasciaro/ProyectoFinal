@@ -5,7 +5,7 @@ const TABLA_PRODUCTOS = "productos";
 //select a la BD
 
 const get = async (habilitado, obj) => {
-    const query = "SELECT p.id, p.nombre, p.descripcion, p.precio, p.tipo  FROM ?? as p  WHERE p.habilitado = ?";
+    const query = 'SELECT p.id, p.nombre, p.descripcion, p.precio, p.tipo  FROM ?? as p  WHERE p.habilitado = ?';
     const params = [TABLA_PRODUCTOS, habilitado, obj];
     // la query me devuelve un objeto o conjunto de filas Data Row Package en un [{}]
     const rows = await pool.query(query, params);
@@ -24,6 +24,8 @@ const single = async (id) =>{
 const update = async(id, obj) => {
     const query = `UPDATE ?? AS p SET ? WHERE p.id = ?`;
     const params = [TABLA_PRODUCTOS, obj, id];
+    console.log(obj);
+    console.log(id);
     const rows = await pool.query(query,params);
     return rows;
 }
